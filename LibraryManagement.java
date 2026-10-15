@@ -3,22 +3,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-/**
- * Library Management System
- * -------------------------
- * Console application to add, update, delete and search book records.
- * Each book stores a title, an author and a book ID.
- * Data is saved to books.txt so it persists between runs.
- */
+
 public class LibraryManagement {
 
     private static final String DATA_FILE = "books.txt";
     private static final Scanner scanner = new Scanner(System.in);
     private static final List<Book> books = new ArrayList<>();
 
-    // -----------------------------------------------------------------------
-    // Book class
-    // -----------------------------------------------------------------------
+
     static class Book {
         private String id;
         private String title;
@@ -42,9 +34,7 @@ public class LibraryManagement {
         }
     }
 
-    // -----------------------------------------------------------------------
-    // File storage
-    // -----------------------------------------------------------------------
+
     private static void loadBooks() {
         File file = new File(DATA_FILE);
         if (!file.exists()) {
@@ -100,9 +90,7 @@ public class LibraryManagement {
         return null;
     }
 
-    // -----------------------------------------------------------------------
-    // Display
-    // -----------------------------------------------------------------------
+
     private static void displayBooks(List<Book> list, String title) {
         System.out.println("\n=== " + title + " ===");
         if (list.isEmpty()) {
@@ -122,9 +110,7 @@ public class LibraryManagement {
         return text.length() > max ? text.substring(0, max - 3) + "..." : text;
     }
 
-    // -----------------------------------------------------------------------
-    // Features
-    // -----------------------------------------------------------------------
+
     private static void addBook() {
         System.out.println("\n--- Add new book ---");
         String id;
@@ -210,9 +196,7 @@ public class LibraryManagement {
         displayBooks(results, "SEARCH RESULTS");
     }
 
-    // -----------------------------------------------------------------------
-    // Main menu
-    // -----------------------------------------------------------------------
+
     public static void main(String[] args) {
         loadBooks();
         while (true) {
